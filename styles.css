@@ -1,0 +1,128 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: montserrat, Arial, Helvetica, sans-serif;
+    background: #5A0000;
+    color: #E6E6E6;
+}
+
+h1 {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+h2 {
+    font-size: 3vw;
+}
+
+h3 {
+    margin: 0 0 1rem 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: underline;
+    color: pink;
+}
+
+i {
+    display: inline;
+    margin: 0 0 5px;
+    font-size: 2rem;
+    color: black;
+    font-style: normal;
+}
+
+input, .working-time, button {
+    text-align: center;
+    width: 100%;
+    background-color: pink;
+    color: black;
+    border: 0;
+    border-radius: 4px;
+    font-size: 2rem;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+button {
+    transition: background-color .2s;
+    margin-bottom: 3rem;
+}
+
+button:hover {
+    background-color: lightcoral;
+}
+
+button:hover {
+    background-color: lightcoral;
+}
+
+.working-time {
+    text-align: center;
+}
+
+.gridx3 input {
+    margin: 0;
+}
+
+.alt-register {
+    margin-bottom: 6rem;
+    font-size: 3vw;
+    color: grey;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    row-gap: 2rem;
+}
+
+.gridx3 {
+    display: grid;
+    grid-template-columns: 1fr 12px 1fr;
+    background-color: pink;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.list-item {
+    background-color: #701010;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.info-prompt {
+    padding: 0 1rem 0 1rem;
+}
+
+.start-time-hours {
+    display: inline;
+
+}
+
+.start-time-minutes {
+    display: inline;
+}
+
+.delete {
+    margin: 1rem 0 0 0;
+}

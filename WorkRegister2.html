@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work Register</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Work Time Register</h1>
+      <!-- <a href="CombinedRegister.html">
+        <h1 class="alt-register">Combined Client Time Register</h1>
+      </a> -->
+      <h2>Enter Client Information:</h2>
+
+      <ul id="client-info">
+        <li>
+          <div class="grid list-item">
+            <div class="info-prompt">
+              <h3>Date:</h3>
+              <input type="date" id="unconfirmed-date" />
+            </div>
+
+            <div class="info-prompt">
+              <h3>Time:</h3>
+              <input type="time" id="unconfirmed-start-time" />
+              <input type="time" id="unconfirmed-end-time" />
+            </div>
+
+            <div class="info-prompt">
+              <h3>Company:</h3>
+              <input type="text" id="unconfirmed-comapany" />
+            </div>
+
+            <div class="info-prompt">
+              <h3>Working Hours:</h3>
+              <div class="working-time">
+                <p id="unconfirmed-working-hours">0</p>
+              </div>
+            </div>
+
+            <div class="info-prompt">
+              <h3>Working Minutes:</h3>
+              <div class="working-time">
+                <p id="unconfirmed-working-minutes">0</p>
+              </div>
+            </div>
+          </div>
+
+          <button id="submit">Confirm</button>
+        </li>
+
+        <li id="confirmed-info" style="display: none">
+          <div class="list-item">
+            <div class="grid">
+              <div class="info-prompt">
+                <h3>Date:</h3>
+                <p class="working-time date">1/1</p>
+              </div>
+              <div class="info-prompt">
+                <h3>Time:</h3>
+                <p class="working-time start-time">00:00</p>
+                <p class="working-time end-time">00:00</p>
+              </div>
+              <div class="info-prompt">
+                <h3>Company:</h3>
+                <p class="working-time company">abc</p>
+              </div>
+              <div class="info-prompt">
+                <h3>Working Hours:</h3>
+                <div class="working-time">
+                  <p class="working-hours">0</p>
+                </div>
+              </div>
+              <div class="info-prompt">
+                <h3>Working Minutes:</h3>
+                <div class="working-time">
+                  <p class="working-minutes">0</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button class="working-time delete">Remove</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script src="optimisedLogic.js"></script>
+  </body>
+</html>
