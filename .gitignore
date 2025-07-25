@@ -1,1 +1,4 @@
 PreviousRefrences/
+node_modules/
+dist/
+.cache/
