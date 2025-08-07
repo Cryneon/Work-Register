@@ -21,6 +21,7 @@ h2 {
 
 h3 {
     margin: 0 0 1rem 0;
+    text-align: center;
 }
 
 ul {
@@ -91,7 +92,8 @@ button:hover {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(5, 20%);
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 1rem;
     row-gap: 2rem;
 }
 
@@ -106,12 +108,9 @@ button:hover {
 .list-item {
     background-color: #701010;
     padding: 1rem;
+    border: 2px solid pink;
     border-radius: 10px;
     margin-bottom: 1rem;
-}
-
-.info-prompt {
-    padding: 0 1rem 0 1rem;
 }
 
 .start-time-hours {

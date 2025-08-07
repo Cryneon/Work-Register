@@ -1,3 +1,6 @@
+/* 
+    All of the original functions used across the project
+*/
 
 // Stores an object to local storage. Iteration is applied to itemKey if specified.
 function setLocalInfo(infoObj, itemKey, iteration = 0) {
@@ -152,6 +155,16 @@ function sortConfirmedInfo() {
 
 }
 
+// Sets an element with the supplied class if it exists
+function setClassElement(className, newValue, iteration = 0) {
+
+    if (document.getElementsByClassName(className)[iteration]) {
+        document.getElementsByClassName(className)[iteration].innerHTML = newValue;
+    }
+
+}
+
+// Adds all confirmed information into HTML
 function setConfirmedHTMl() {
 
     // Creates a new confirmed-info element for each confirmedInfo in local storage and supplies them with appropriate information
@@ -161,54 +174,38 @@ function setConfirmedHTMl() {
 
         document.getElementById("client-info").append(HTMLCopy);
 
-        document.getElementsByClassName("date")[i + 1].innerHTML            = getLocalInfo("confirmedInfo", i + 1).date;
-        document.getElementsByClassName("start-time")[i + 1].innerHTML      = `${getLocalInfo("confirmedInfo", i + 1).startHours}:${getLocalInfo("confirmedInfo", i + 1).startMinutes}`;
-        document.getElementsByClassName("end-time")[i + 1].innerHTML        = `${getLocalInfo("confirmedInfo", i + 1).endHours}:${getLocalInfo("confirmedInfo", i + 1).endMinutes}`;
-        document.getElementsByClassName("company")[i + 1].innerHTML         = getLocalInfo("confirmedInfo", i + 1).company;
-        document.getElementsByClassName("working-hours")[i + 1].innerHTML   = getLocalInfo("confirmedInfo", i + 1).workingHours;
-        document.getElementsByClassName("working-minutes")[i + 1].innerHTML = getLocalInfo("confirmedInfo", i + 1).workingMinutes;
+        setClassElement("date",            getLocalInfo("confirmedInfo", i + 1).date,                                                                 i + 1);
+        setClassElement("start-time",      `${getLocalInfo("confirmedInfo", i + 1).startHours}:${getLocalInfo("confirmedInfo", i + 1).startMinutes}`, i + 1);
+        setClassElement("end-time",        `${getLocalInfo("confirmedInfo", i + 1).endHours}:${getLocalInfo("confirmedInfo", i + 1).endMinutes}`,     i + 1);
+        setClassElement("company",         getLocalInfo("confirmedInfo", i + 1).company,                                                              i + 1);
+        setClassElement("working-hours",   getLocalInfo("confirmedInfo", i + 1).workingHours,                                                         i + 1);
+        setClassElement("working-minutes", getLocalInfo("confirmedInfo", i + 1).workingMinutes,                                                       i + 1);
     }
 
 }
 
-// Initially sets unconfirmedInfo to the current unconfirmed information
-let unconfirmedInfo = getUnconfirmedInfo();
+// Receives an array of objects. Each object contains a company and its total corresponding minutes 
+function combinedTimePerCompany() {
 
-// Adjusts unconfirmedInfo to the unconfirmedInfo in local storage if it exists
-if (getLocalInfo("unconfirmedInfo")) {
-    unconfirmedInfo = getLocalInfo("unconfirmedInfo");
-}
+    let companies = [];
 
-sortConfirmedInfo();
+    for (let i = 0; i < getConfirmedInfoElements(); i++) {
 
-setUnconfirmedHTML();
+        let isExisting = false;
 
-setConfirmedHTMl();
-
-addEventListener("change", function() {
-
-    // Updates both instances of unconfirmedInfo
-    unconfirmedInfo = getUnconfirmedInfo();
-    setLocalInfo(unconfirmedInfo, "unconfirmedInfo");
-
-    updateWorkingTime();
-
-});
-
-// Adds functionality to the submit button by means of storing information into local storage
-document.getElementById("submit").addEventListener("click", confirmUnconfirmedInfo);
-
-// Adds functionality to all the delete buttons by means of setting all elements after the chosen one to the element after them. Then, the last element is deleted. 
-for (let i = 0; i < getConfirmedInfoElements(); i++) {
-    document.getElementsByClassName("delete")[i + 1].addEventListener("click", function() {
-        
-        for (let j = i + 1; j < getConfirmedInfoElements(); j++) {
-            setLocalInfo(getLocalInfo("confirmedInfo", j + 1), "confirmedInfo", j);
+        for (let j = 0; j < companies.length; j++) {
+            if (getLocalInfo("confirmedInfo", i + 1).company === companies[j].company) {
+                companies[j].time += (getLocalInfo("confirmedInfo", i + 1).workingHours * 60 + getLocalInfo("confirmedInfo", i + 1).workingMinutes);
+                isExisting = true;
+                break;
+            }
         }
         
-        localStorage.removeItem(`confirmedInfo${getConfirmedInfoElements()}`);
+        if (!isExisting) {
+            companies.push({company: getLocalInfo("confirmedInfo", i + 1).company, time: getLocalInfo("confirmedInfo", i + 1).workingHours * 60 + getLocalInfo("confirmedInfo", i + 1).workingMinutes});
+        }
+    }
 
-        location.reload();
+    return companies;
 
-    });
 }
