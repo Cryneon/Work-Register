@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple time register. Can be use to keep track of time that has been worked towards a company or business."
+    />
     <title>Work Register</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -19,18 +23,34 @@
           <div class="grid list-item">
             <div>
               <h3>Date:</h3>
-              <input type="date" id="unconfirmed-date" />
+              <input
+                type="date"
+                id="unconfirmed-date"
+                aria-label="The date you worked for a company."
+              />
             </div>
 
             <div>
               <h3>Time:</h3>
-              <input type="time" id="unconfirmed-start-time" />
-              <input type="time" id="unconfirmed-end-time" />
+              <input
+                type="time"
+                id="unconfirmed-start-time"
+                aria-label="The starting time you worked for a company."
+              />
+              <input
+                type="time"
+                id="unconfirmed-end-time"
+                aria-label="The ending time you worked for a company."
+              />
             </div>
 
             <div>
               <h3>Company:</h3>
-              <input type="text" id="unconfirmed-comapany" />
+              <input
+                type="text"
+                id="unconfirmed-comapany"
+                aria-label="The company that you worked for."
+              />
             </div>
 
             <div>

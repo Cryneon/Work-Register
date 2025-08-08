@@ -1,5 +1,5 @@
 /* 
-    Adds functionality to index.html. Utilizes logic.js
+    Adds functionality to index.html
 */
 
 // Stores an object to local storage. Iteration is applied to itemKey if specified.
@@ -184,31 +184,6 @@ function setConfirmedHTMl() {
 
 }
 
-// Receives an array of objects. Each object contains a company and its total corresponding minutes 
-function combinedTimePerCompany() {
-
-    let companies = [];
-
-    for (let i = 0; i < getConfirmedInfoElements(); i++) {
-
-        let isExisting = false;
-
-        for (let j = 0; j < companies.length; j++) {
-            if (getLocalInfo("confirmedInfo", i + 1).company === companies[j].company) {
-                companies[j].time += (getLocalInfo("confirmedInfo", i + 1).workingHours * 60 + getLocalInfo("confirmedInfo", i + 1).workingMinutes);
-                isExisting = true;
-                break;
-            }
-        }
-        
-        if (!isExisting) {
-            companies.push({company: getLocalInfo("confirmedInfo", i + 1).company, time: getLocalInfo("confirmedInfo", i + 1).workingHours * 60 + getLocalInfo("confirmedInfo", i + 1).workingMinutes});
-        }
-    }
-
-    return companies;
-
-}
 
 // Initially sets unconfirmedInfo to the current unconfirmed information
 let unconfirmedInfo = getUnconfirmedInfo();
