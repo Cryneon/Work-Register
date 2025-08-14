@@ -10,13 +10,13 @@ body {
 }
 
 h1 {
-    font-size: 5vw;
+    font-size: 4rem;
     text-align: center;
     margin-top: 2rem;
 }
 
 h2 {
-    font-size: 3vw;
+    font-size: 2rem;
 }
 
 h3 {
@@ -55,7 +55,7 @@ input, .working-time, button {
     border-radius: 4px;
     font-size: 2rem;
     margin-bottom: 5px;
-    padding: 0;
+    padding: 0 1rem 0 1rem;
 }
 
 button {
@@ -97,12 +97,9 @@ button:hover {
     row-gap: 2rem;
 }
 
-.gridx3 {
-    display: grid;
-    grid-template-columns: 1fr 12px 1fr;
-    background-color: pink;
-    border-radius: 4px;
-    margin-bottom: 5px;
+.separate {
+    display: flex;
+    justify-content: space-between;
 }
 
 .list-item {

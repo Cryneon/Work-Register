@@ -24,13 +24,17 @@ function getLocalInfo(itemKey, iteration = 0) {
 
 // Receives an HTML element's value with a supplied id
 function getElement(id) {
+
     return document.getElementById(id).value;
+
 }
 
 // Set an HTML element with a supplied id to a new value
 function setElement(id, newValue) {
+
     document.getElementById(id).value = newValue;
     document.getElementById(id).innerHTML = newValue;
+    
 }
 
 // Receives an array with two string values. The first is the hours. The second is the minutes.

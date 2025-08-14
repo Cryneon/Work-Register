@@ -35,6 +35,19 @@ function setClassElement(className, newValue, iteration = 0) {
 
 }
 
+// Adds a number to an HTML element
+function addNumberElement(id, addedNumber) {
+
+    document.getElementById(id).innerHTML = Number(document.getElementById(id).innerHTML) + addedNumber;
+
+}
+
+// Set an HTML element with a supplied id to a new value
+function setElement(id, newValue) {
+    document.getElementById(id).value = newValue;
+    document.getElementById(id).innerHTML = newValue;
+}
+
 // Receives an array of objects. Each object contains a company and its total corresponding minutes 
 function combinedTimePerCompany() {
 
@@ -75,6 +88,7 @@ function setConfirmedHTML() {
 
         setClassElement("company", companies[i].company, i + 1);
         setClassElement("hours", Math.floor((companies[i].time / 60) * 100) / 100, i + 1);
+        addNumberElement("total-time", Math.floor((companies[i].time / 60) * 100) / 100, i + 1);
         }
         
 }
