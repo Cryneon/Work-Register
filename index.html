@@ -8,29 +8,31 @@
       content="A simple time register. Can be use to keep track of time that has been worked towards a company or business."
     />
     <title>Work Register</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="CSS/styles.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Work Time Register</h1>
-      <a href="combinedRegister.html">
-        <h1 class="alt-register">Combined Client Time Register</h1>
-      </a>
-      <h2>Enter Client Information:</h2>
+      <header>
+        <h1>Work Time Register</h1>
+        <a href="Pages/combinedRegister.html">
+          <h1 class="alt-register">Combined Client Time Register</h1>
+        </a>
+        <h2>Enter Client Information:</h2>
+      </header>
 
       <ul id="client-info">
-        <li>
-          <div class="grid list-item">
-            <div>
+        <li id="unconfirmed-info">
+          <article class="grid list-item">
+            <section>
               <h3>Date:</h3>
               <input
                 type="date"
                 id="unconfirmed-date"
                 aria-label="The date you worked for a company."
               />
-            </div>
+            </section>
 
-            <div>
+            <section>
               <h3>Time:</h3>
               <input
                 type="time"
@@ -42,73 +44,72 @@
                 id="unconfirmed-end-time"
                 aria-label="The ending time you worked for a company."
               />
-            </div>
+            </section>
 
-            <div>
+            <section>
               <h3>Company:</h3>
               <input
                 type="text"
                 id="unconfirmed-comapany"
                 aria-label="The company that you worked for."
               />
-            </div>
+            </section>
 
-            <div>
+            <section>
               <h3>Working Hours:</h3>
               <div class="working-time">
                 <p id="unconfirmed-working-hours">0</p>
               </div>
-            </div>
+            </section>
 
-            <div>
+            <section>
               <h3>Working Minutes:</h3>
               <div class="working-time">
                 <p id="unconfirmed-working-minutes">0</p>
               </div>
-            </div>
-          </div>
+            </section>
+          </article>
 
           <button id="submit">Confirm</button>
         </li>
 
-        <li id="confirmed-info" style="display: none">
-          <div class="list-item">
-            <div class="grid">
-              <div class="info-prompt">
-                <h3>Date:</h3>
-                <p class="working-time date">1/1</p>
-              </div>
-              <div class="info-prompt">
-                <h3>Time:</h3>
-                <p class="working-time start-time">00:00</p>
-                <p class="working-time end-time">00:00</p>
-              </div>
-              <div class="info-prompt">
-                <h3>Company:</h3>
-                <p class="working-time company">abc</p>
-              </div>
-              <div class="info-prompt">
-                <h3>Working Hours:</h3>
-                <div class="working-time">
-                  <p class="working-hours">0</p>
-                </div>
-              </div>
-              <div class="info-prompt">
-                <h3>Working Minutes:</h3>
-                <div class="working-time">
-                  <p class="working-minutes">0</p>
-                </div>
-              </div>
-            </div>
+        <li id="confirmed-info" class="list-item" style="display: none">
+          <article class="grid">
+            <section class="info-prompt">
+              <h3>Date:</h3>
+              <p class="working-time date">1/1</p>
+            </section>
 
-            <div>
-              <button class="working-time delete">Remove</button>
-            </div>
-          </div>
+            <section class="info-prompt">
+              <h3>Time:</h3>
+              <p class="working-time start-time">00:00</p>
+              <p class="working-time end-time">00:00</p>
+            </section>
+
+            <section class="info-prompt">
+              <h3>Company:</h3>
+              <p class="working-time company">abc</p>
+            </section>
+
+            <section class="info-prompt">
+              <h3>Working Hours:</h3>
+              <div class="working-time">
+                <p class="working-hours">0</p>
+              </div>
+            </section>
+
+            <section class="info-prompt">
+              <h3>Working Minutes:</h3>
+              <div class="working-time">
+                <p class="working-minutes">0</p>
+              </div>
+            </section>
+          </article>
+
+          <button class="working-time delete">Remove</button>
         </li>
       </ul>
     </div>
-    <!-- <script src="logic.js"></script> -->
-    <script src="workTime.js"></script>
+    <script src="JavaScript/workTime.js"></script>
   </body>
 </html>

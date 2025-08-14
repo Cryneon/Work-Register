@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combined Client Time</title>
+    <link rel="stylesheet" href="/CSS/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Combined Client Time Register</h1>
+        <a href="/">
+          <h1 class="alt-register">Work Time Register</h1>
+        </a>
+        <div class="separate">
+          <h2>Total Time Per Company:</h2>
+          <section class="list-item">
+            <h3>Total</h3>
+            <p id="total-time" class="working-time">0</p>
+          </section>
+        </div>
+      </header>
+
+      <ul id="client-info" class="grid">
+        <li id="confirmed-info" class="list-item" style="display: none">
+          <section>
+            <h3 class="company">Company</h3>
+            <p class="working-time hours">Hours</p>
+          </section>
+        </li>
+      </ul>
+      <script src="/JavaScript/combinedTime.js"></script>
+    </div>
+  </body>
+</html>
