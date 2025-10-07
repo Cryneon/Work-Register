@@ -45,23 +45,23 @@ function getTimeElements(id) {
 }
 
 // Receives the year of a local object with the supplied id and iteration
-function getDateYear(id, iteration) {
+function getDateYear(iteration) {
 
-    return getLocalInfo(id, iteration + 1).date.split("-")[0];
+    return getLocalInfo("confirmedInfo", iteration + 1).date.split("-")[0];
 
 }
 
 // Receives the month of a local object with the supplied id and iteration
-function getDateMonth(id, iteration) {
+function getDateMonth(iteration) {
 
-    return getLocalInfo(id, iteration + 1).date.split("-")[1];
+    return getLocalInfo("confirmedInfo", iteration + 1).date.split("-")[1];
 
 }
 
 // Receives the day of a local object with the supplied id and iteration
-function getDateDay(id, iteration) {
+function getDateDay(iteration) {
 
-    return getLocalInfo(id, iteration + 1).date.split("-")[2];
+    return getLocalInfo("confirmedInfo", iteration + 1).date.split("-")[2];
 
 }
 
@@ -138,21 +138,26 @@ function sortConfirmedInfo() {
     // Swaps two confirmedInfo objects in local storage
     function swapLocal(iteration1, iteration2) {
 
-        let temp = getLocalInfo("confirmedInfo", iteration2 + 1);
-                setLocalInfo(getLocalInfo("confirmedInfo", iteration1 + 1), "confirmedInfo", iteration2 + 1);
-                setLocalInfo(temp, "confirmedInfo", iteration1 + 1);
+        let temp = getLocalInfo("confirmedInfo", iteration2);
+                setLocalInfo(getLocalInfo("confirmedInfo", iteration1), "confirmedInfo", iteration2);
+                setLocalInfo(temp, "confirmedInfo", iteration1);
 
     }
 
+    // Compares the dates of the two supplied iterations and recieves whether the first date is smaller than the second.
+    function compareDates(iteration1, iteration2) {
+
+        let totalDays1 = getDateYear(iteration1) * 365 + getDateMonth(iteration1) * 30 + getDateDay(iteration1);
+        let totalDays2 = getDateYear(iteration2) * 365 + getDateMonth(iteration2) * 30 + getDateDay(iteration2);
+
+        return totalDays1 < totalDays2;
+
+    }
 
     for (let i = 0; i < getConfirmedInfoElements(); i++) {
         for (let j = 0; j < i; j++) {
-            if (getDateYear("confirmedInfo", j)  > getDateYear("confirmedInfo", i)  ||
-                getDateMonth("confirmedInfo", j) > getDateMonth("confirmedInfo", i) ||
-                getDateDay("confirmedInfo", j)   > getDateDay("confirmedInfo", i)
-                ) {
-
-                swapLocal(i, j);
+            if (compareDates(i, j)) {
+                swapLocal(i + 1, j + 1);
             }
         }
     }
